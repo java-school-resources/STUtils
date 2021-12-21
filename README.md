@@ -1,6 +1,63 @@
-These are 2 utility functions:
- ______________________________
-boolean isSorted(Stack<integer> s)        ----->    this is a function that gets a stack and returens if the numbers in the stack are in decreasing order.
-**This is done** by checking through a loop that each number isn't smaller than the next number in the stack.
-___________________________________
-  void circular(Stack<T> s)                      ------>  this is a function that gets a stack and rotates it
+## Stack Utility project
+This project is a stack class with function that will help us in the bagrut tests feel free to share this with other people.
+## Documentation
+**Stack function**
+
+1. push
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+
+2. pop
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+3. top
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+4. isEmpty
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+5. toString
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+6. isSorted
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+7. fill
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+8. circular
+   ```
+   Use:
+   Input: 
+   Output:
+   ```
+
+## Contribution flow
+
+1. If you don't have intellij install it in this [link](https://www.jetbrains.com/idea/download/#section=linux).
+2. Then fork this repository
+3. Add your code, run test and when you finishes add to the above documentation of your added function. Use the format shown above.
+4. Create a pull request to this repository
+5. Done! 
+
