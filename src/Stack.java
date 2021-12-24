@@ -16,7 +16,7 @@ public class Stack<T> {
 	 * @param x new stack head
 	 */
 	public void push(T x) {
-		Node<T> temp = new Node<T>(x);
+		Node<T> temp = new Node<>(x);
 		temp.setNext(head);
 		head = temp;
 	}
