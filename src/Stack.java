@@ -54,8 +54,8 @@ public class Stack<T> {
 	 * Returns the stack in string form.
 	 *
 	 * <h1>Examples</h1>
-	 * *<pre>
-	 *  {@code
+	 * <pre>
+	 * {@code
 	 * Stack<Integer> s = new Stack<>();
 	 * s.push(5);
 	 * s.push(7);
@@ -63,12 +63,12 @@ public class Stack<T> {
 	 * }
 	 * </pre>
 	 * if the stack is empty however,
-	 * * <pre>
-	 * * {@code
-	 * * Stack<Integer> s = new Stack<>();
+	 * <pre>
+	 * {@code
+	 * Stack<Integer> s = new Stack<>();
 	 * s.toString(); //returns []
-	 * *}
-	 * * </pre>
+	 * }
+	 * </pre>
 	 *
 	 * @return the stack in string form
 	 */
