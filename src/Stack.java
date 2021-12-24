@@ -59,7 +59,7 @@ public class Stack<T> {
 	 * Stack<Integer> s = new Stack<>();
 	 * s.push(5);
 	 * s.push(7);
-	 * s.toString(); // returns [7,5]
+	 * s.toString(); // returns [5,7]
 	 * }
 	 * </pre>
 	 * if the stack is empty however,
@@ -73,7 +73,6 @@ public class Stack<T> {
 	 * @return the stack in string form
 	 */
 	public String toString() {
-
 		if (this.isEmpty()) return "[]";
 		Stack<T> temp = new Stack<>();
 
@@ -122,6 +121,7 @@ public class Stack<T> {
 		s.push(8);
 		s.push(9);
 		s.push(12);
+		System.out.println(s);
 		System.out.println(isSorted(s));
 
 	}

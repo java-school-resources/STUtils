@@ -44,7 +44,7 @@ class StackTest {
         s.push("Hello\n");
         s.push("\bBruv");
         s.push("123");
-        assertEquals(s.toString(), "[123,\bBruv,Hello\n]");
+        assertEquals(s.toString(), "[Hello\n,\bBruv,123]");
     }
 
     @org.junit.jupiter.api.Test
