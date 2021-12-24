@@ -110,7 +110,7 @@ public class Stack<T> {
 	}
 
 	public static <T> void circular(Stack<T> s) {
-		Stack<T> tmp = new Stack<T>();
+		Stack<T> tmp = new Stack<>();
 		T top = s.pop();
 		fill(s, tmp);
 		s.push(top);
