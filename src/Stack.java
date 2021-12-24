@@ -75,7 +75,7 @@ public class Stack<T> {
 	public String toString() {
 
 		if (this.isEmpty()) return "[]";
-		Stack<T> temp = new Stack<T>();
+		Stack<T> temp = new Stack<>();
 
 		while (!this.isEmpty())
 			temp.push(this.pop());
