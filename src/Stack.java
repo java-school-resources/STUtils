@@ -16,7 +16,7 @@ public class Stack<T> {
 	 * @param x new stack head
 	 */
 	public void push(T x) {
-		Node<T> temp = new Node<T>(x);
+		Node<T> temp = new Node<>(x);
 		temp.setNext(head);
 		head = temp;
 	}
@@ -54,28 +54,27 @@ public class Stack<T> {
 	 * Returns the stack in string form.
 	 *
 	 * <h1>Examples</h1>
-	 * *<pre>
-	 *  {@code
+	 * <pre>
+	 * {@code
 	 * Stack<Integer> s = new Stack<>();
 	 * s.push(5);
 	 * s.push(7);
-	 * s.toString(); // returns [7,5]
+	 * s.toString(); // returns [5,7]
 	 * }
 	 * </pre>
 	 * if the stack is empty however,
-	 * * <pre>
-	 * * {@code
-	 * * Stack<Integer> s = new Stack<>();
+	 * <pre>
+	 * {@code
+	 * Stack<Integer> s = new Stack<>();
 	 * s.toString(); //returns []
-	 * *}
-	 * * </pre>
+	 * }
+	 * </pre>
 	 *
 	 * @return the stack in string form
 	 */
 	public String toString() {
-
 		if (this.isEmpty()) return "[]";
-		Stack<T> temp = new Stack<T>();
+		Stack<T> temp = new Stack<>();
 
 		while (!this.isEmpty())
 			temp.push(this.pop());
@@ -110,7 +109,7 @@ public class Stack<T> {
 	}
 
 	public static <T> void circular(Stack<T> s) {
-		Stack<T> tmp = new Stack<T>();
+		Stack<T> tmp = new Stack<>();
 		T top = s.pop();
 		fill(s, tmp);
 		s.push(top);
@@ -122,6 +121,7 @@ public class Stack<T> {
 		s.push(8);
 		s.push(9);
 		s.push(12);
+		System.out.println(s);
 		System.out.println(isSorted(s));
 
 	}
