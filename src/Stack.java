@@ -1,129 +1,109 @@
 
-/**
- * Java generic stack implementation.
- */
-public class Stack<T> {
-
+public class Stack<T>
+{
 	private Node<T> head;
-
-	public Stack() {
+	private static final String TOP = " __top__ \n";
+	// CTOR
+	// ---------------------------------------------------------------------------------------
+	public Stack()
+	{
 		this.head = null;
 	}
 
-	/**
-	 * Pushes an element onto the top of the stack.
-	 *
-	 * @param x new stack head
-	 */
-	public void push(T x) {
+	// Copy constructor
+	public Stack(Stack<T> stackToCopy)
+	{
+		// pop the stackToCopy to a temp stack then push it back to this stack and stackToCopy
+		Stack<T> temp = new Stack<>();
+
+		while(!stackToCopy.isEmpty())
+		{
+			temp.push(stackToCopy.pop());
+		}
+
+		while(!temp.isEmpty())
+		{
+			this.push(temp.top());
+			stackToCopy.push(temp.pop());
+		}
+
+	}
+	// ---------------------------------------------------------------------------------------
+
+	// Basic Methods
+	// ---------------------------------------------------------------------------------------
+	public void push(T x)
+	{
 		Node<T> temp = new Node<>(x);
 		temp.setNext(head);
 		head = temp;
 	}
 
-	/**
-	 * Pops an element off the top of the stack.
-	 *
-	 * @return the head of the stack
-	 */
-	public T pop() {
+	public T pop()
+	{
 		T x = head.getValue();
 		head = head.getNext();
 		return x;
 	}
 
-	/**
-	 * Returns the top of the stack.
-	 *
-	 * @return top of the stack
-	 */
-	public T top() {
+	public T top()
+	{
 		return head.getValue();
 	}
 
-	/**
-	 * Checks whether the stack has any elements in it.
-	 *
-	 * @return if the stack is empty
-	 */
-	public boolean isEmpty() {
+	public boolean isEmpty()
+	{
 		return head == null;
 	}
 
-	/**
-	 * Returns the stack in string form.
-	 *
-	 * <h1>Examples</h1>
-	 * <pre>
-	 * {@code
-	 * Stack<Integer> s = new Stack<>();
-	 * s.push(5);
-	 * s.push(7);
-	 * s.toString(); // returns [5,7]
-	 * }
-	 * </pre>
-	 * if the stack is empty however,
-	 * <pre>
-	 * {@code
-	 * Stack<Integer> s = new Stack<>();
-	 * s.toString(); //returns []
-	 * }
-	 * </pre>
-	 *
-	 * @return the stack in string form
-	 */
-	public String toString() {
-		if (this.isEmpty()) return "[]";
-		Stack<T> temp = new Stack<>();
 
-		while (!this.isEmpty())
-			temp.push(this.pop());
-
-		String s = "[";
-
-		while (!temp.isEmpty()) {
-			s = s + temp.top().toString() + ',';
-			this.push(temp.pop());
+	public int length()
+	{
+		Stack<T> temp = new Stack<>(this);
+		int len = 0;
+		while (!temp.isEmpty())
+		{
+			temp.pop();
+			len++;
 		}
 
-		s = s.substring(0, s.length() - 1) + "]";
-		return s;
+		return len;
 	}
 
+	public String toString()
+	{
 
-	public static boolean isSorted(Stack<Integer> s) {
-		int top = s.pop();
-		while (!s.isEmpty()) {
-			if (top < s.top()) {
+		String stackString = TOP;
+		Stack<T> temp = new Stack<>(this);
+
+		while (!temp.isEmpty())
+		{
+			stackString += "|" + String.format("%-7s", temp.pop().toString() ) + "|\n";
+			stackString += "|_______|\n";
+		}
+
+		if (stackString == TOP) stackString = "No Stack";
+		return stackString;
+	}
+	// ---------------------------------------------------------------------------------------
+
+	// Static Functions
+	// ---------------------------------------------------------------------------------------
+	public static boolean isSorted(Stack<Integer> stackToCheck)
+	{
+		Stack<Integer> temp = new Stack<Integer>(stackToCheck);
+		int top;
+
+		while (!temp.isEmpty())
+		{
+			top = temp.pop();
+			// if the stack isn't already empty then check for sort validation
+			if (!temp.isEmpty() && top < temp.top())
+			{
 				return false;
 			}
-			top = s.pop();
 		}
 		return true;
 	}
-
-	public static <T> void fill(Stack<T> remove, Stack<T> fill) {
-		while (!remove.isEmpty()) {
-			fill.push(remove.pop());
-		}
-	}
-
-	public static <T> void circular(Stack<T> s) {
-		Stack<T> tmp = new Stack<>();
-		T top = s.pop();
-		fill(s, tmp);
-		s.push(top);
-		fill(tmp, s);
-	}
-
-	public static void main(String[] args) {
-		Stack<Integer> s = new Stack<>();
-		s.push(8);
-		s.push(9);
-		s.push(12);
-		System.out.println(s);
-		System.out.println(isSorted(s));
-
-	}
-
+	// ---------------------------------------------------------------------------------------
 }
