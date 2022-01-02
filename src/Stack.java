@@ -85,7 +85,7 @@ public class Stack<T> {
         return a.getSorted().reverse();
     }
 
-    public int getLenth() {
+    public int getLength() {
         Stack a = this.copy();
         int i = 0;
         while (!a.isEmpty()) {
@@ -100,7 +100,7 @@ public class Stack<T> {
         Stack<Integer> a = this.copy();
         Stack<Integer> sorted = new Stack<Integer>();
 
-        while (sorted.getLenth() != this.getLenth()) {
+        while (sorted.getLength() != this.getLength()) {
             sorted.push(getMin(a));
             while (a.top() != getMin(a)) {
                 temp.push(a.pop());
@@ -177,7 +177,7 @@ public class Stack<T> {
         Stack<Integer> c = a.copy();
         Stack<Integer> d = b.copy();
         boolean flag = true;
-        if (c.getLenth() != d.getLenth()) {
+        if (c.getLength() != d.getLength()) {
             return false;
         }
         while (!c.isEmpty() && !d.isEmpty()) {
